@@ -22,7 +22,7 @@ themes_links = themes_loc.findAll("a")
 
 ---Then by using a for loop the themes_url list is populated with the theme_links 
 
-# List of themes
+
 themes_url = []
 
 # Populate the list of themes
@@ -33,16 +33,14 @@ for i in themes_links:
  
  ---Nltk stopwords are inserted from the nltk.corpus and extra stopwords are added 
  
- #Creating Stopwords
+#Creating Stopwords
 stop_words= nltk.corpus.stopwords.words('english')
-#Adding extra stopwords
 more_stopwords = [",",".","'","I","!","The","?",";",":","He","It","She","´","’","<",">","`","“","\n","-","'s ","$","..."]
-#Extending the stopwords list
 stop_words.extend(more_stopwords)
 
 ---Another for loop is used to construct every targeted link that will be mined
 
-# Make a list to store all the url that will be iterated in the loop
+Make a list to store all the url that will be iterated in the loop
 links = []
 # Construct all the urls to iterate over
 
@@ -55,6 +53,7 @@ for i in themes_url:
                
 ---After inspecting the website I found out that the html div with class = fc-item__container
 contained all the info and the link for each article and created 3 nested loops in order to:
+
 1) find all those divs in every url from the links list :
 for i in links:
      page = urlopen(i)
@@ -84,7 +83,7 @@ for a in nltk.tokenize.word_tokenize(headline):
                     themes.append(theme)
                     
 A little additional data cleaning for the timestamp data
-# Break the time stamp data in smaller categories and populate the lists
+Break the time stamp data in smaller categories and populate the lists
 
 for i in timestamp:
      i = re.split("[T +]",i)
